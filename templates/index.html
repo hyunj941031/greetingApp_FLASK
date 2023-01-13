@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Say Hello</title>
+		<!-- css파일과 연결-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+	</head>
+	<body>
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUILDA499Vn244wIg9fZN11aCxZZpoyvUK9Q&usqp=CAU">
+		<!--# linebreaker-->
+		<br>
+		<form action="greet" method="post">
+			<!--app.py에서 flash를 이용하여 문자열 입력-->
+			{% for message in get_flashed_messages()%}
+				<p> {{message}} </p>
+			{% endfor %}
+			<br>
+			<input type="text" name="name_input">
+			<br>
+			<!--# form에서는 버튼을 사용하지 않기 때문에 input을 활용-->
+			<input type="submit" value="GREET" id="greet">
+		</form>
+	</body>
+</html>
